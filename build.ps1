@@ -7,7 +7,7 @@ $build_dir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Write-Host "-- Build Dir: $build_dir"
 
 # Download rootfs
-$dl_url = "$mirror_url/ubuntu-cloud-images/wsl/$ubuntu_version/current/ubuntu-$ubuntu_version-wsl-amd64-wsl.rootfs.tar.gz"
+$dl_url = "$mirror_url/ubuntu-cloud-images/wsl/$ubuntu_version/current/ubuntu-$ubuntu_version-wsl-amd64-ubuntu.rootfs.tar.gz"
 $dl_target = "$build_dir\linux.wsl.tar.gz"
 if (Test-Path $dl_target) {
     # 文件存在，询问用户是否跳过下载

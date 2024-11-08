@@ -47,7 +47,7 @@ function unsetproxy() {
 # GWSL远程桌面 环境变量
 if [[ -z $DISPLAY ]] ; then
     export DISPLAY=$WIN_HOST:0.0
-#    export PULSE_SERVER=$WIN_HOST
+    export PULSE_SERVER=$WIN_HOST
 fi
 
 # Alias 命令别名
@@ -56,4 +56,13 @@ if [ -f "$HOME/.alias" ] ; then
 fi
 alias open="/mnt/c/Windows/explorer.exe"
 
+EOF
+
+# pypi conf
+sudo -u $WSL_USER mkdir -p /home/$WSL_USER/.config/pip
+sudo -u $WSL_USER touch /home/$WSL_USER/.config/pip/pip.conf
+sudo -u $WSL_USER cat <<'EOF' > /home/$WSL_USER/.config/pip/pip.conf
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+trusted-host = pypi.tuna.tsinghua.edu.cn
 EOF
